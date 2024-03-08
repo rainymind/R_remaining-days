@@ -1,0 +1,18 @@
+#include <iostream>
+#include <chrono>
+
+int main() {
+    // Get the current time
+    auto now = std::chrono::system_clock::now();
+    time_t current_time = std::chrono::system_clock::to_time_t(now);
+    struct tm *tm = std::localtime(&current_time);
+    
+    // Calculate remaining days in the current year
+    int year = tm->tm_year + 1900;
+    int days_in_year = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) ? 366 : 365;
+    int days_remaining = days_in_year - tm->tm_yday - 1; // -1 to exclude today
+
+    std::cout << "Remaining days until the end of the year: " << days_remaining << std::endl;
+
+    return 0;
+}
