@@ -1,7 +1,8 @@
+// 000000000000000000000
 #include <iostream>
 #include <chrono>
 int main() {
-    // Get the current time 000000000000000000000
+    // Get the current time 
     auto now = std::chrono::system_clock::now();
     time_t current_time = std::chrono::system_clock::to_time_t(now);
     struct tm *tm = std::localtime(&current_time);
